@@ -1,42 +1,97 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<script src="cordova.js"></script>
+		<!--network detection javascript sample
+        this works and uncommented will produce a popup telling the type of network connection present
+		<script src="scripts/JavaScript.js"></script>-->
+
+		<link href="styles/main.css" rel="stylesheet" />
+
+		<!--META-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+            <plugin name="Notification" value="CDVNotification" />
+
+		Login CHECK
+		<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>-->
+		<!--<link href="jquery-mobile/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+		<script src="jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script> -->
+
+<script type="text/javascript" charset="utf-8">
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+   function onDeviceReady() {
+
+        //window.localStorage.setItem("key", "Mani");
+        //var keyname = window.localStorage.key(0);
+        // keyname is now equal to "key"
+        //window.localStorage.clear();
+        //value = window.localStorage.getItem("user");
+       //console.log(value);
+       console.log(window.localStorage.getItem("user"));
+        // value is now equal to "value"
+        //window.localStorage.removeItem("key");
+        //window.localStorage.setItem("key2", "value2");
+        // window.localStorage.clear();
+        // localStorage is now empty
+        //console.log(value);
+        //console.log(window.localStorage.getItem("key2"));
+    }
+    
+
+
+    </script>
+            
+  </head>
+  <body>
+     
+  <script>
+      //var value = null;
+      //setlogin();
+     // onDeviceReady();
+      if (window.localStorage.getItem("user") != null) 
+      {
+          window.location.replace("Login.html");
+          }
+      else
+      {
+         
+      }
+  </script>
+     <br />
+     <br />
+     <br /><br /><br />
+   <form>
+        <label>Username:</label>
+            <input type="text" name="username" />
+       <br />
+        <label>Password:</label>
+            <input type="password" name="password"  />
+       <br />
+       <br />
+            <input type="submit" value="Submit" name="submit" class="submit" onclick=clickin(username,password) />
+</form> 
+      <script>
+          
+          /*function setlogin(){
+              value = window.localStorage.getItem("user");
+        console.log(value);
+          }*/
+          
+          function clickin(username, password) {
+        window.localStorage.setItem("user", username.value);
+        window.location.replace("Login.html");
+        //var retrieve = window.localStorage.getItem("user");
+
+    }</script>
+  </body>
 </html>
